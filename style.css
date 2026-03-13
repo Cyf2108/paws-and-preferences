@@ -201,15 +201,24 @@ button{
     }
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    margin-top: 10px;
+}
+
 .buttons button {
-    font-size: 18px;
-    padding: 12px 24px;
-    margin: 10px;
+    flex: 1 1 45%;
+    max-width: 160px;
+    font-size: 16px;
+    padding: 12px 0;
+    cursor: pointer;
     border: none;
     border-radius: 12px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
     color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
@@ -222,7 +231,7 @@ button{
 }
 
 .buttons button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 6px 10px rgba(0,0,0,0.3);
 }
 
@@ -333,8 +342,9 @@ button{
     }
 
     .buttons button {
-        width: 90%;
+        flex: 1 1 40%;
         font-size: 14px;
+        padding: 10px 0;
     }
 
     #restart-btn {
