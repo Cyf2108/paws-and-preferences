@@ -29,8 +29,9 @@ body {
     align-items: center;
     min-height: 100vh;
     box-sizing: border-box;
+    max-width: 100vw; /* prevent overflow */
+    overflow-x: hidden; /* double safety */
 }
-
 h1{
     margin-top:20px;
 }
@@ -47,11 +48,21 @@ h1{
 	font-size:16pt;
 }
 
-#card-container{
-    margin:auto;
-    width:300px;
-    height:300px;
+#card-container {
+    margin: auto;
+    width: 90%;
+    max-width: 350px;
+    height: 300px; /* let height adjust automatically */
 }
+
+#cat-image{
+    width:100%;
+    height: 100%;
+    object-fit:cover;
+    border-radius:10px;
+    transition: transform 0.3s;
+}
+
 
 .reaction{
     position:absolute;
@@ -80,14 +91,6 @@ h1{
         transform:translate(-50%, -50%) scale(1);
         opacity:0;
     }
-}
-
-#cat-image{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:10px;
-    transition: transform 0.3s;
 }
 
 .swipe-right{
@@ -309,4 +312,33 @@ button{
 #confirm-restart:hover, #cancel-restart:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 480px) {
+    #titleheader h1 {
+        font-size: 1.5em;
+    }
+
+    #titleheader p {
+        font-size: 1em;
+    }
+
+    #card-container {
+        width: 95%;
+    }
+
+    #liked-cats img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .buttons button {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    #restart-btn {
+        width: 90%;
+        font-size: 14px;
+    }
 }
