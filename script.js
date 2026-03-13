@@ -13,9 +13,21 @@ let cats = [
 
 let preloadedCats = [];
 
-cats.forEach(url => {
-    let img = new Image();
-    img.src = url;
+let loadedCount = 0;
+
+cats.forEach(src => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+        loadedCount++;
+        document.querySelector("#loading-screen p").innerText = `Loading cats... (${loadedCount}/${cats.length})`;
+
+        if (loadedCount === cats.length) {
+            document.getElementById("loading-screen").style.display = "none";
+            document.getElementById("app-wrapper").classList.remove("hidden");
+            showCat();
+        }
+    };
     preloadedCats.push(img);
 });
 
@@ -174,10 +186,10 @@ document.getElementById("cat-image").addEventListener("touchend", function(e){
     let endX = e.changedTouches[0].clientX;
 
     if(endX - startX > 50){
-        like();     // swipe right
+        like();
     }
     else if(startX - endX > 50){
-        dislike();  // swipe left
+        dislike();
     }
 });
 
