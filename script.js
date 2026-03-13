@@ -11,24 +11,36 @@ let cats = [
 "https://cataas.com/cat?10"
 ];
 
+let preloadedCats = [];
+
+cats.forEach(url => {
+    let img = new Image();
+    img.src = url;
+    preloadedCats.push(img);
+});
+
 let current = 0;
 let likedCats = [];
 let isLoading = false;
 
-function showCat(){
-    if(current < cats.length){
+function showCat() {
+    if(current < cats.length) {
         let img = document.getElementById("cat-image");
         isLoading = true;
-        img.src = cats[current];
 
+        // use preloaded image
+        img.src = preloadedCats[current].src;
+
+        // optional: ensure we wait for image to display
         img.onload = function(){
             isLoading = false;
-        }
+        };
 
+        // update the counter
         document.getElementById("progress").innerText =
             "Cat " + (current + 1) + " of " + cats.length;
 
-    }else{
+    } else {
         showResults();
     }
 }
