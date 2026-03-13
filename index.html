@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paws & Preferences</title>
+	 <link rel="icon" type="image/png" href="https://s13.gifyu.com/images/bm9FU.png">
+    <link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Permanent+Marker&display=swap" rel="stylesheet"></head>
+	<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+
+
+<body>
+<div id="titleheader">
+	<h1>Paws & Preferences 🐱</h1>
+	<p>Swipe right if you like the cat, swipe left if you dislike.</p>
+</div>
+
+<div id="card-container">
+    <img id="cat-image" src="">
+	<div id="like-icon" class="reaction">❤️</div>
+    <div id="dislike-icon" class="reaction">💔</div>
+</div>
+
+<p id="progress"></p>
+
+<div class="buttons">
+    <button id="dislike-btn" onclick="dislike()">Dislike😿</button>
+    <button id="like-btn" onclick="like()">Like😻</button>
+</div>
+
+<div id="result" class="hidden">
+    <p id="like-count"></p>
+	<h2 id="result-header">Your Favourite Cats</h2>
+    <div id="liked-cats"></div>
+</div>
+
+<div id="meme" class="hidden"></div>
+<div id="lovememe" class="hidden"></div>
+
+<button id="restart-btn" onclick="openRestartModal()">Restart</button>
+
+<div id="restart-modal" class="modal hidden">
+    <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <h3>Confirm Restart</h3>
+        <p>Are you sure you want to restart? Your progress will be lost.</p>
+        <button id="confirm-restart">Yes, Restart</button>
+        <button id="cancel-restart">Cancel</button>
+    </div>
+</div>
+
+<div id="image-viewer" class="hidden">
+    <span id="close-viewer">&times;</span>
+    <img id="viewer-img">
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
