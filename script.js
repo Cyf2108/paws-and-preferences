@@ -28,15 +28,12 @@ function showCat() {
         let img = document.getElementById("cat-image");
         isLoading = true;
 
-        // use preloaded image
         img.src = preloadedCats[current].src;
 
-        // optional: ensure we wait for image to display
         img.onload = function(){
             isLoading = false;
         };
 
-        // update the counter
         document.getElementById("progress").innerText =
             "Cat " + (current + 1) + " of " + cats.length;
 
